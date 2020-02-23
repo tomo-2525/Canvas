@@ -10,6 +10,8 @@ function startDraw(event) {
     mouseDown = true;
     penX = event.clientX;
     penY = event.clientY;
+    // penX = event.offsetX;
+    // penY = event.offsetY;
 }
 
 function draw(event) {
@@ -23,9 +25,10 @@ function draw(event) {
 
         var x = event.clientX;
         var y = event.clientY;
-
+        // var x = event.offsetX;
+        // var y = event.offsetY;
         context.beginPath();
-        context.moveTo(pneX, penY);
+        context.moveTo(penX, penY);
         context.lineTo(x, y);
         context.stroke();
 
