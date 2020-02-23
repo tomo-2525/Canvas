@@ -1,0 +1,10 @@
+canvas{
+border:solid #999 1px;
+}
+
+#buttons{
+    background-color: #ccc;
+    border:solid #999 1px;
+    width:620px;
+    padding:10px;
+}
