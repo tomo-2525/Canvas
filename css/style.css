@@ -2,9 +2,30 @@ canvas{
 border:solid #999 1px;
 }
 
+.pallet {
+    background-color: #eee;
+    border:solid #999 1px;
+    width:620px;
+    padding: 10px;
+    font-size: small;
+}
+
 #buttons{
     background-color: #ccc;
     border:solid #999 1px;
     width:620px;
     padding:10px;
 }
+
+#canvasColor{
+background-image: url("image/index.png");
+}
+
+.red{background-color: #F00;}
+.yellow{background-color: #FF0;}
+.green{background-color: #0F0;}
+.chan{background-color: #0FF;}
+.blue{background-color: #00F;}
+.magenta{background-color: #F0F;}
+.white{background-color: #FFF;}
+.black{background-color: #000;}

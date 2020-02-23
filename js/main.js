@@ -6,6 +6,9 @@ var penY = 0;
 var penColor = "rgba(0, 0, 0, 1)";
 var penWidth = 10;
 
+
+
+
 function startDraw(event) {
     mouseDown = true;
     penX = event.clientX;
@@ -40,6 +43,46 @@ function draw(event) {
 function endDraw(event) {
     mouseDown = false;
 }
+
+function changeWidth() {
+    penWidth = document.getElementById("penW").value;
+
+    var canvasWidth = document.getElementById("canvasWidth");
+    var contextWidth = canvasWidth.getContext("2d");
+
+    cantextWidth.clearRect(0, 0, 20, 20);
+    contextWidth.beginPath();
+    contextWidth.arc(10, 10, penWidth / 2, 2 * Math.PI, false);
+    contextWidth.fill();
+}
+
+
+function setColor(r, g, b) {
+    document.getElementById("penR").value = r;
+    document.getElementById("penG").value = g;
+    document.getElementById("penB").value = b;
+    changeColor();
+}
+
+function changeColor() {
+    var penR = document.getElementById("penR").value;
+    var penG = document.getElementById("penG").value;
+    var penB = document.getElementById("penB").value;
+    var penA = document.getElementById("penA").value;
+
+    penColor = "rgba(" + penR + ", " + penG + ", " + penB + ", " + penA + ")";
+
+    var canvasColor = document.getElementById("canvasColor");
+    var contextClor = canvasColor.getContext("2d");
+
+    contextClor.clearRect(0, 0, 20, 20);
+    contextClor.fillStyle = penColor;
+    contextClor.fillRect(0, 0, 20, 20);
+
+    var textColor = document.getElementById("textColor");
+    textColor.innerHTML = "R : " + penR + ", G :" + penG + ", B :" + penB + ", A :" + penA;
+}
+
 
 function drawRect() {
     var canvas = document.getElementById("main");
@@ -80,4 +123,24 @@ function drawCircle() {
     context.beginPath();
     context.arc(450, 350, 80, 0, 2 * Math.PI, false);
     context.fill();
+}
+
+function clearCanvas() {
+    var canvas = document.getElementById("main");
+    var context = canvas.getContext("2d");
+
+    context.clearRect(0, 0, canvas.width, canvas.height)
+}
+
+function showImage() {
+    var canvas = document.getElementById("main");
+    var imageWin = window.open("", "");
+
+    imageWin.document.open();
+    imageWin.document.write('<html>')
+    imageWin.document.write('<head><title>お絵かき</title></head>');
+    imageWin.document.write('<body>')
+    imageWin.document.write('<img src="' + canvas.toDataURL() + '">');
+    imageWin.document.write('</body></html>');
+    imageWin.document.close();
 }

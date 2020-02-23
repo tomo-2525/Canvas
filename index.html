@@ -8,13 +8,44 @@
     <script src="js/main.js"></script>
 </head>
 
-<body>
+<body onLoad="changeColor()">
     <canvas id="main" width="640" height="480" onMouseDown="startDraw(event)" onMouseMove="draw(event)"
-        onMouseUp="endDraw(event)"></canvas>
+        onMouseUp="endDraw(event)">
+    </canvas>
+
+    <div class="pallet">
+        <canvas id="canvasColor" width="20" height="20"></canvas>
+        ペンの色：[<span id="textColor">R:0, G:0, B:0, A:1.0</span>]
+        <br>
+        R:<input type="range" id="penR" value="0" min="0" max="255" onChange="changeColor()">
+        G:<input type="range" id="penG" value="0" min="0" max="255" onChange="changeColor()">
+        B:<input type="range" id="penB" value="0" min="0" max="255" onChange="changeColor()">
+        A:<input type="range" id="penA" value="1" min="0" max="1" step="0.1" onChange="changeColor()">
+    </div>
+    <hr>
+    基本色：
+    <button type="button" class="red" onClick="setColor(255, 0, 0)"></button>
+    <button type="button" class="yellow" onClick="setColor(255, 255, 0)"></button>
+    <button type="button" class="green" onClick="setColor(0, 255, 0)"></button>
+    <button type="button" class="chan" onClick="setColor(0, 0, 255)"></button>
+    <button type="button" class="blue" onClick="setColor(0, 0, 255)"></button>
+    <button type="button" class="magenta" onClick="setColor(255, 0, 255)"></button>
+    <button type="button" class="white" onClick="setColor(255, 255, 255)"></button>
+    <button type="button" class="black" onClick="setColor(0, 0, 0)"></button>
     <div id="buttons">
         <input type="button" value="四角形を描く" onclick="drawRect()">
         <input type="button" value="線を描く" onclick="drawLine()">
         <input type="button" value="円を描く" onclick="drawCircle()">
+    </div>
+    <div class="pallet">
+        <canvas id="canvasWidth" width="20" height="20"></canvas>
+        ペンの太さ：
+        <input type="range" id="penW" value="10" min="1" max="20" oninput="changeWidth()">
+    </div>
+
+    <div id="buttons">
+        <input type="button" value="お絵描きを消す" onclick="clearCanvas()">
+        <input tupe="button" value="別ウィンドウで表示" onclick="showImage()">
     </div>
 
 </body>
