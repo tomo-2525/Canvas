@@ -11,7 +11,8 @@
 
 <body onLoad="changeColor()">
     <canvas id="main" width="640" height="480" onMouseDown="startDraw(event)" onMouseMove="draw(event)"
-        onMouseUp="endDraw(event)">
+        onMouseUp="endDraw(event)" ontouchstart="startDraw(event)" ontouchmove="draw(event)"
+        ontouchend="endDraw(event)">
     </canvas>
 
     <div class="pallet">
